@@ -18,7 +18,7 @@ function Chatbot() {
     }, 30000); // 30 seconds
 
     axios
-      .post('http://3.7.248.108:80/generateanswer', {
+      .post('http://13.232.196.47:80/generateanswer', {
         question: query, // The question input from the user
         pmid: pmid, // The PMID from the URL
       })
