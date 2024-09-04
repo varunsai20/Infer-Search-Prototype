@@ -1,0 +1,30 @@
+#articleContainer{
+    position: absolute;
+      margin: 0;
+      top: 12%;
+      left: 0%;
+      max-width: 100%;
+   }
+
+   .typographyRow-articles{
+    text-align: justify;
+    display: inline-grid;
+    margin-top: 10px;
+    width:fit-content; /* Ensure it takes the full width of the container */
+    font-size: 18px !important;
+   }
+
+   .italic{
+    display: contents;
+   }
+   
+   .data-not-found-container-article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    background-color: #f9f9f9;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+   }

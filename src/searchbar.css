@@ -1,0 +1,168 @@
+/* src/SearchBar.css */
+
+/* Body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f3f4;
+    
+  }
+  
+  /* Container for the entire search interface */
+/* src/searchbar.css */
+
+/* Existing styles... */
+
+.container {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+  
+}
+
+.search-results-container {
+  margin-top: 2px;
+  position: fixed;
+  top: 5px;
+  left: 30%;
+  z-index: 2;
+}
+
+  /* Autocomplete styling */
+  .autocomplete {
+    width: 100%;
+    padding-right: 4px;
+    border-radius: 8px;
+
+  }
+  /* src/searchbar.css */
+
+.custom-textfield .MuiOutlinedInput-root {
+  border-radius: 8px; /* Add border radius */
+  height: 45px; /* Set height of the search bar */
+}
+
+.custom-textfield .MuiOutlinedInput-input {
+  padding: 12px; /* Adjust padding if needed */
+}
+
+  /* Styling for the results container */
+  .results {
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Header styling */
+  h4 {
+    color: #4285f4;
+  }
+  
+  /* Styling for the input field */
+  .MuiOutlinedInput-root {
+    background-color: #ffffff;
+    border-radius: 4px;
+    /* padding: 0 !important; */
+  }
+  
+  /* Button styling */
+  .MuiButtonBase-root {
+    background-color: #4285f4;
+    color: white;
+    padding: 11px 20px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 42px;
+  }
+  
+  /* Button hover effect */
+  .MuiButtonBase-root:hover {
+    background-color: #357ae8;
+  }
+  
+  /* Styling for the result cards */
+  .MuiPaper-root {
+    padding: 1px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border-left: 3px solid #4285f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for result cards */
+  .MuiPaper-root:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title styling for each result */
+  .result-title {
+    color: #1a0dab;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    text-decoration: none;
+  }
+  
+  /* URL styling for each result */
+  .result-url {
+    color: #006621;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Description styling for each result */
+  .result-description {
+    color: #545454;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+
+
+  /* Container for the "Data Not Found" message */
+  .data-not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Full height of the viewport */
+    background-color: #f9f9f9; /* Optional: Light background color */
+    padding: 20px;
+}
+
+/* Styling for the message box */
+.data-not-found {
+  text-align: center;
+  background-color: #fff; /* White background for the box */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 30px 50px; /* Padding inside the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Styling for the heading */
+.data-not-found h2 {
+  font-size: 24px; /* Larger font size for the heading */
+  color: #333; /* Dark color for the text */
+  margin-bottom: 20px;
+}
+
+/* Styling for the description text */
+.data-not-found p {
+  font-size: 16px; /* Standard font size for the paragraph */
+  color: #777; /* Slightly lighter color for the paragraph text */
+  line-height: 1.5;
+  margin: 0;
+}

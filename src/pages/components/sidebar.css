@@ -1,0 +1,28 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    width: 15%;
+    height: 100vh; /* Full height of the viewport */
+    padding: 18px 0 20px 20px;
+    background-color: #f1f2f5; /* Light background color for the sidebar */
+    border-top: 0;
+    border-right: 1px solid #ccc;
+    box-shadow: px 0 5px rgba(0,0,0,0.1); /* Optional shadow for better distinction */
+    overflow-y: auto; /* Enables scrolling if content exceeds height */
+    color: black;
+  }
+.filter{
+  display: flex;
+  font-size: 10px;
+}
+.ArticleType{
+  font-size: 15px;
+  display: flex;
+}
+#abstract{
+  margin-top: 0;
+}
+.filter label {
+  line-height: 2;
+}

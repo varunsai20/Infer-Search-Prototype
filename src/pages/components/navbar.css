@@ -1,0 +1,50 @@
+/* src/navbar.css */
+
+/* Navbar background color */
+Appbar{
+    background-color: #f1f2f5;
+    
+}
+#navbar{
+  margin-top: 0;
+    background-color: #f1f2f5; 
+    padding: 0;
+    position: fixed;
+    border-radius: 0;
+    height:10%;
+    z-index: 1;
+}
+.navbar {
+    background-color: #f1f2f5;
+    border-left: 0;
+  }
+  
+  /* Style for the logo */
+  .logo {
+    height: 40px;
+    margin-right: auto;
+  }
+  .userBox {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  /* Styling the username */
+  #username {
+    margin: 0 15px 0 0;
+    color: rgb(10, 10, 10);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    /* line-height: 0; */
+    letter-spacing: 0;
+  }
+  
+  /* Avatar styling */
+  .avatar {
+    background-color: white;
+    color: #3f51b5;
+  }
+  
+ 

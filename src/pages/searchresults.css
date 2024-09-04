@@ -1,0 +1,132 @@
+.search-results {
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    width: fit-content;
+    padding: 20px 20px 20px 0px;
+    /* margin-left: auto; */
+    color: black;
+  }
+ #searchContainer{
+  position: absolute;
+  margin: 0;
+  top: 12%;
+  left: 16%;
+  max-width: -webkit-fill-available;
+ } 
+ #Answer{
+  margin-top: 10%;
+ }
+ #searchResults{
+  /* display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  margin-left: -8%;
+  width: 115%; */
+
+  }
+  /* searchresults.css */
+  #Answer{
+
+  }
+/* Style for highlighted terms */
+.highlight {
+  display: contents;
+  font-style: italic; /* Italicize the text */
+  display: inline; /* Ensure the text stays inline without extra spacing */
+  line-height: normal; /* Prevent any line-height discrepancies */
+  white-space: normal; /* Prevent excessive space around the highlighted term */
+}
+
+  .paperContent {
+    /* position: relative;
+    top: 6rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px;
+  }
+  .Title-keyword{
+    color: black;
+  }
+  .typographyRow {
+    text-align: justify;
+    display: inline-flex;
+    margin-top: 10px;
+    width:fit-content; /* Ensure it takes the full width of the container */
+    font-size: 12px !important;
+  }
+  .Typography-Title{
+    font-size: 18px !important;
+  }
+  .result-item {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .result-item h3 {
+
+    margin: 0;
+    font-size: .8em;
+  }
+  .typographyRow{
+    display: block;
+  }
+  .result-item p {
+    
+    width: fit-content;;
+    margin: 5px 0 0 0;
+    font-size: .5em;
+  }
+  
+ #title{
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  /* line-height: 1.6; */
+  letter-spacing: 0.0075em;
+  /* color: #1976d2;*/
+  }
+
+
+
+
+
+
+  /* Container for the "Data Not Found" message */
+  .data-not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Full height of the viewport */
+    background-color: #f9f9f9; /* Optional: Light background color */
+    padding: 20px;
+}
+
+/* Styling for the message box */
+.data-not-found {
+  text-align: center;
+  background-color: #fff; /* White background for the box */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 30px 50px; /* Padding inside the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Styling for the heading */
+.data-not-found h2 {
+  font-size: 24px; /* Larger font size for the heading */
+  color: #333; /* Dark color for the text */
+  margin-bottom: 20px;
+}
+
+/* Styling for the description text */
+.data-not-found p {
+  font-size: 16px; /* Standard font size for the paragraph */
+  color: #777; /* Slightly lighter color for the paragraph text */
+  line-height: 1.5;
+  margin: 0;
+}

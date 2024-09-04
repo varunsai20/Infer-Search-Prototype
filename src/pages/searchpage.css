@@ -1,0 +1,6 @@
+.app {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 20%; /* This matches the width of the sidebar */
+  }
+  

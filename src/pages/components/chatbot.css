@@ -1,0 +1,35 @@
+.chatbot-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    height: fit-content;
+    width: 100%;
+  }
+  
+  .chatbot-input {
+    margin-right: 8px !important;
+    border-radius: 16px !important;
+  }
+  
+  .chatbot-button {
+    /* margin-bottom: 16px; */
+  }
+  
+  .chatbot-response {
+    margin-top: 15px !important;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 20px !important;
+  }
+  .MuiInputBase-root{
+    border-radius: 16px !important;
+  }
+
+  .response-container{
+    height: fit-content;
+    overflow-y: auto;
+    
+  }
