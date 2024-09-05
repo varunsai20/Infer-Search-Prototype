@@ -18,13 +18,11 @@ function Chatbot() {
     }, 30000); // 30 seconds
 
     axios
-      .post('http://13.232.196.47:80/generateanswer', {
+      .post('http://15.206.186.58:80/generateanswer', {
         question: query, // The question input from the user
         pmid: pmid, // The PMID from the URL
       })
       .then((response) => {
-        console.log(response);
-        console.log(response.data.Answer);
         const data = response.data.Answer; // Assuming the API response contains a 'Answer' property
         setResponse(data);
         clearTimeout(timeoutId);
