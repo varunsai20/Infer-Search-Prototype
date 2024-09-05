@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './searchresults.css';
 import { useLocation,useNavigate  } from 'react-router-dom';
 import { Container, Typography, Paper, Box } from '@mui/material';
@@ -10,6 +10,10 @@ function SearchResults() {
   const searchTerm = location.state?.searchTerm || '';
   const navigate = useNavigate();
   console.log(data)
+  useEffect(() => {
+    // Clear session storage for chatHistory when the location changes
+    sessionStorage.removeItem('chatHistory');
+  }, [location]);
   // Function to italicize the search term in the text
   const italicizeTerm = (text) => {
     // Ensure text is a string

@@ -13,6 +13,7 @@
   border-radius: 30px;
   margin-bottom: 10px;
   width: fit-content;
+  margin-right: 20px;
 }
 .query-response{ 
     color: #333;
@@ -47,6 +48,7 @@
   }
   
   .chatbot-response {
+    background-color: rgb(211 211 211);
     margin-top: 15px !important;
     color: #333;
     text-align: justify;
@@ -54,6 +56,8 @@
     font-size: 15px;
     margin-left: 20px;
     margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 15px;
   }
   .MuiInputBase-root{
     border-radius: 16px !important;
