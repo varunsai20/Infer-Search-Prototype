@@ -38,7 +38,6 @@ function SearchResults() {
     navigate(`/article/${pmid}`, { state: { data: data, searchTerm } });
   };
   
-
   return (
     <>
       <Container id="searchContainer" maxWidth="md">
