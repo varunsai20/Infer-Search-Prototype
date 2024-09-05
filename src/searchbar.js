@@ -46,7 +46,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
       }, 30000); // 30 seconds
 
       axios
-        .post('https://15.206.186.58:80/query', { query: searchTerm })
+        .post('http://65.1.147.104:80/query', { query: searchTerm })
         .then((response) => {
           console.log(response)
           console.log(response.data.Articles)

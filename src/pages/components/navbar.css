@@ -34,7 +34,7 @@ Appbar{
   #username {
     margin: 0 15px 0 0;
     color: rgb(10, 10, 10);
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
     /* line-height: 0; */

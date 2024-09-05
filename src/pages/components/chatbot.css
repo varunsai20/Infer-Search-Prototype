@@ -1,3 +1,26 @@
+.query-container{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 16px;
+  height: fit-content;
+  width: fit-content;
+}
+.query-container-box{
+  background-color: rgb(211 211 211);
+  border-radius: 30px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.query-response{ 
+    color: #333;
+    text-align: justify;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 .chatbot-container {
     align-items: center;
     display: flex;
@@ -23,6 +46,9 @@
     color: #333;
     text-align: justify;
     margin-bottom: 20px !important;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   .MuiInputBase-root{
     border-radius: 16px !important;
@@ -32,4 +58,8 @@
     height: fit-content;
     overflow-y: auto;
     
+  }
+  .response-container-box{
+    background-color: rgb(211 211 211);
+    border-radius: 40px;
   }

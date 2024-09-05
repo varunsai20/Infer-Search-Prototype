@@ -3,6 +3,7 @@ import axios from 'axios'; // Import axios
 import { Box, TextField, Button, Typography, CircularProgress } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import './chatbot.css';
+import ReactMarkdown from 'react-markdown';
 
 function Chatbot() {
   const [query, setQuery] = useState('');
@@ -10,7 +11,7 @@ function Chatbot() {
   const { pmid } = useParams(); // Get the PMID from the URL
   const [loading, setLoading] = useState(false);
   const endOfMessagesRef = useRef(null); // Ref for the last message element
-
+  console.log(response)
   const handleSearch = () => {
     setLoading(true);
     const timeoutId = setTimeout(() => {
@@ -18,7 +19,7 @@ function Chatbot() {
     }, 30000); // 30 seconds
 
     axios
-      .post('https://15.206.186.58:80/generateanswer', {
+      .post('http://65.1.147.104:80/generateanswer', {
         question: query, // The question input from the user
         pmid: pmid, // The PMID from the URL
       })
@@ -40,10 +41,35 @@ function Chatbot() {
       // Scroll to the last message element
       endOfMessagesRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [response]); // Run this effect whenever `response` changes
+  }, [query]); // Run this effect whenever `response` changes
 
   return (
     <>
+    
+    {/* <Box className="response-container-box"> */}
+    {response && (
+      <>
+      <Box className="query-container-box">
+    {query && (
+          <div
+          className="query-container"
+          
+        >
+           <Typography variant="body1" className="query-response">
+            {query}
+          </Typography>
+        <div ref={endOfMessagesRef} />
+      </div>
+      )}
+    </Box>
+          <div
+          className="response-container"
+        >
+          <ReactMarkdown variant="body1" className="chatbot-response">{response}</ReactMarkdown>
+      </div>
+      </>)}
+    {/* </Box> */}
+    
       <Box className="chatbot-container">
         <TextField
           value={query}
@@ -53,6 +79,7 @@ function Chatbot() {
           fullWidth
           className="chatbot-input"
         />
+
         <Button
           variant="contained"
           color="primary"
@@ -63,19 +90,7 @@ function Chatbot() {
         </Button>
       </Box>
       
-        {response && (
-          <div
-          className="response-container"
-           // Adjust height and overflow as needed
-        >
-            <Typography variant="body1" className="chatbot-response">
-            {response}
-          </Typography>
         
-        {/* Add a dummy element to scroll into view */}
-        <div ref={endOfMessagesRef} />
-      </div>
-      )}
     </>
   );
 }
