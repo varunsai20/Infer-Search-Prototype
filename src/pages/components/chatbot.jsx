@@ -26,7 +26,7 @@ function Chatbot() {
     }, 30000);
 
     axios
-      .post('http://65.1.147.104:80/generateanswer', {
+      .post('https://brq27bqgcc.execute-api.ap-south-1.amazonaws.com/generateanswer', {
         question: query,
         pmid: pmid,
       })
