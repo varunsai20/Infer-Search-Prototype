@@ -41,7 +41,7 @@ function ArticleResult() {
 
   return (
     <>
-    {articleData ? (<Container id="articleContainer" maxWidth="lg">
+    {articleData ? (<><Container id="articleContainer" maxWidth="lg">
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box id="searchResults">
@@ -70,11 +70,14 @@ function ArticleResult() {
             </Paper>
           </Box>
         </Grid>
-        <Grid item xs={12}>
-          <Chatbot /> {/* Add the Chatbot component here */}
-        </Grid>
+        
+          
+        
       </Grid>
-    </Container>) : (
+    </Container>
+    
+    <Chatbot /> {/* Add the Chatbot component here */}
+  </>) : (
           <div className="data-not-found-container-article">
             <div className="data-not-found">
               <h2>Data Not Found</h2>

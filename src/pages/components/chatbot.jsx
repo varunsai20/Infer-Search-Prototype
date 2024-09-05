@@ -45,8 +45,25 @@ function Chatbot() {
 
   return (
     <>
-    
-    {/* <Box className="response-container-box"> */}
+          <div className="chatbot-container">
+        <TextField
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          label="Ask a Question"
+          variant="outlined"
+          fullWidth
+          className="chatbot-input"
+        />
+
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleSearch}
+          className="chatbot-button"
+        >
+          {loading ? <CircularProgress size={24} color='white' /> : 'Search'}
+        </Button>
+      </div>
     {response && (
       <>
       <Box className="query-container-box">
@@ -68,29 +85,10 @@ function Chatbot() {
           <ReactMarkdown variant="body1" className="chatbot-response">{response}</ReactMarkdown>
       </div>
       </>)}
-    {/* </Box> */}
     
-      <Box className="chatbot-container">
-        <TextField
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          label="Ask a Question"
-          variant="outlined"
-          fullWidth
-          className="chatbot-input"
-        />
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleSearch}
-          className="chatbot-button"
-        >
-          {loading ? <CircularProgress size={24} color='white' /> : 'Search'}
-        </Button>
-      </Box>
       
-        
+
     </>
   );
 }
