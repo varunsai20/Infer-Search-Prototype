@@ -13,7 +13,7 @@
     display: inline-grid;
     margin-top: 10px;
     width:fit-content; /* Ensure it takes the full width of the container */
-    font-size: 18px !important;
+    font-size: 15px !important;
    }
 
    .italic{

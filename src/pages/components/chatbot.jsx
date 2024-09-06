@@ -12,13 +12,12 @@ function Chatbot() {
   const [loading, setLoading] = useState(false);
   const endOfMessagesRef = useRef(null);
   const [chatHistory, setChatHistory] = useState(() => {
-    // Retrieve the chat history from session storage when the component is mounted
     const storedHistory = sessionStorage.getItem('chatHistory');
     return storedHistory ? JSON.parse(storedHistory) : [];
   });
 
   const handleSearch = () => {
-    if (!query) return; // Do nothing if query is empty
+    if (!query) return;
 
     setLoading(true);
     const timeoutId = setTimeout(() => {
@@ -34,14 +33,12 @@ function Chatbot() {
         const data = response.data.Answer;
         setResponse(data);
 
-        // Update chat history with the new query and response
         const newChatHistory = [...chatHistory, { query, response: data }];
         setChatHistory(newChatHistory);
 
-        // Store the updated chat history in session storage
         sessionStorage.setItem('chatHistory', JSON.stringify(newChatHistory));
 
-        setQuery(''); // Clear the input field
+        setQuery('');
         setLoading(false);
         clearTimeout(timeoutId);
       })
@@ -52,17 +49,13 @@ function Chatbot() {
       });
   };
 
-  // UseEffect to clear sessionStorage on reload or exit
   useEffect(() => {
     const handleBeforeUnload = () => {
-      // Clear session storage when the user refreshes or leaves the page
       sessionStorage.removeItem('chatHistory');
     };
 
-    // Add event listener for the beforeunload event
     window.addEventListener('beforeunload', handleBeforeUnload);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
@@ -70,10 +63,15 @@ function Chatbot() {
 
   useEffect(() => {
     if (endOfMessagesRef.current) {
-      // Scroll to the last message element
       endOfMessagesRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [chatHistory]); // Run this effect whenever chatHistory changes
+  }, [chatHistory]);
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <>
@@ -81,6 +79,7 @@ function Chatbot() {
         <TextField
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
           label="Ask a Question"
           variant="outlined"
           fullWidth
