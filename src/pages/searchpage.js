@@ -1,9 +1,9 @@
 import React from 'react'
 import Sidebar from './components/sidebar'
-import SearchResults from './searchResults'
+import SearchResults from './components/searchResults'
 import Navbar from './components/navbar'
 // import SearchpageBar from './components/searchpageBaR'
-import SearchBar from '../searchbar'
+import SearchBar from './components/searchbar'
 
 const searchpage = () => {
   return (

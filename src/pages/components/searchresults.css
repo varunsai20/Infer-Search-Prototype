@@ -52,7 +52,7 @@
   .typographyRow {
     text-align: justify;
     display: inline-flex;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width:fit-content; /* Ensure it takes the full width of the container */
     font-size: 12px !important;
   }

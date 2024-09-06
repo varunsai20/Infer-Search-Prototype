@@ -3,7 +3,7 @@ import { Autocomplete, TextField, Container, Box, Button, CircularProgress } fro
 import axios from 'axios';
 import { useNavigate ,useLocation} from 'react-router-dom';
 import './searchbar.css';  
-import terms from './final_cleaned_terms_only.json';
+import terms from '../../final_cleaned_terms_only.json';
 
 const SearchBar = ({ isSearchResultsPage }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +46,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
       }, 30000); // 30 seconds
 
       axios
-        .post('https://brq27bqgcc.execute-api.ap-south-1.amazonaws.com/query', { query: searchTerm })
+        .post('https://13.235.71.25/query', { query: searchTerm })
         .then((response) => {
           console.log(response)
           console.log(response.data.Articles)
@@ -67,6 +67,11 @@ const SearchBar = ({ isSearchResultsPage }) => {
     }
   };
   console.log(results)
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleButtonClick();
+    }
+  };
 
   return (
     <Container 
@@ -78,6 +83,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
           freeSolo
           options={results}
           onInputChange={handleSearch}
+          
           inputValue={searchTerm}
           renderInput={(params) => (
             <TextField 
@@ -85,6 +91,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
               label="Search" 
               variant="outlined" 
               fullWidth 
+              onKeyDown={handleKeyDown}
               className="custom-textfield" // Apply custom class
             />
           )}
