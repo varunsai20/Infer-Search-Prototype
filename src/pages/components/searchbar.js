@@ -46,7 +46,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
       }, 30000); // 30 seconds
 
       axios
-        .post('https://13.235.71.25/query', { query: searchTerm })
+        .post('https://brq27bqgcc.execute-api.ap-south-1.amazonaws.com/query', { query: searchTerm })
         .then((response) => {
           console.log(response)
           console.log(response.data.Articles)
