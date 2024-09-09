@@ -44,7 +44,8 @@ const SearchBar = ({ isSearchResultsPage }) => {
         setLoading(false);
         navigate('/search', { state: { data: [], searchTerm } });
       }, 30000); // 30 seconds
-      const postUrl = 'http://checkip.amazonaws.com';
+      const postUrl = 'http://169.254.169.254/latest/meta-data/public-ipv4';
+      const postUrl2 = 'http://instance-data/latest/meta-data/public-ipv4'
       console.log(`Making POST request to: ${postUrl}`);
       
       axios
@@ -69,7 +70,12 @@ const SearchBar = ({ isSearchResultsPage }) => {
           navigate('/search', { state: { data: [], searchTerm } });
           console.error('Error fetching data from the API', error);
         });
-    }
+      axios.get(postUrl2).then((response) => {
+        console.log(response)
+    }).catch((error) => {
+               console.log(error)
+        console.error('Error fetching data from the API', error);
+      })
   };
   console.log(results)
   const handleKeyDown = (event) => {
