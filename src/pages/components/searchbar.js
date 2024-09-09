@@ -46,10 +46,12 @@ const SearchBar = ({ isSearchResultsPage }) => {
       }, 30000); // 30 seconds
       const postUrl = 'http://169.254.169.254/latest/meta-data/public-ipv4';
       console.log(`Making POST request to: ${postUrl}`);
+      
       axios
-        .post({postUrl}, { query: searchTerm })
+        .get({postUrl})
         .then((response) => {
           console.log(response)
+          console.log(response.text)
           console.log(postUrl)
           console.log(response.data.Articles)
           // sessionStorage.setItem("SearchTerm", searchTerm);
@@ -67,14 +69,6 @@ const SearchBar = ({ isSearchResultsPage }) => {
           navigate('/search', { state: { data: [], searchTerm } });
           console.error('Error fetching data from the API', error);
         });
-        axios
-        .get({postUrl})
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((error)=>{
-          console.log(error)
-        })
     }
   };
   console.log(results)
