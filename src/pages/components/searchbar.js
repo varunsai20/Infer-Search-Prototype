@@ -48,17 +48,17 @@ const SearchBar = ({ isSearchResultsPage }) => {
       console.log(`Making POST request to: ${postUrl}`);
       
       axios
-        .get({postUrl})
+        .get(postUrl)
         .then((response) => {
           console.log(response)
           console.log(response.text)
           console.log(postUrl)
           console.log(response.data.Articles)
           // sessionStorage.setItem("SearchTerm", searchTerm);
-          const data = response.data; // Assuming the API response contains a 'results' array
-          setResults(data);
+          // const data = response.data; // Assuming the API response contains a 'results' array
+          // setResults(data);
           // Navigate to SearchPage and pass data via state
-          navigate('/search', { state: { data, searchTerm } });
+          // navigate('/search', { state: { data, searchTerm } });
           clearTimeout(timeoutId);
           setLoading(false);
         })
