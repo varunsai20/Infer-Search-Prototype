@@ -44,12 +44,12 @@ const SearchBar = ({ isSearchResultsPage }) => {
         setLoading(false);
         navigate('/search', { state: { data: [], searchTerm } });
       }, 30000); // 30 seconds
-      const postUrl = 'http://169.254.169.254/latest/meta-data/public-ipv4';
+      const postUrl = 'http://169.254.169.254/latest/meta-data/';
       const postUrl2 = 'http://instance-data/latest/meta-data/public-ipv4'
       console.log(`Making POST request to: ${postUrl}`);
       
       axios
-        .get(postUrl)
+        .get({postUrl})
         .then((response) => {
           console.log(response)
           console.log(response.text)
