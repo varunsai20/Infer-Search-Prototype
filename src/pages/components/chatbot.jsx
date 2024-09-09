@@ -23,7 +23,7 @@ function Chatbot() {
     const timeoutId = setTimeout(() => {
       setLoading(false);
     }, 30000);
-    const postUrl = 'http://checkip.amazonaws.com/generateanswer';
+    const postUrl = 'http://169.254.169.254/latest/meta-data/public-ipv4/generateanswer';
       console.log(`Making POST request to: ${postUrl}`);
     axios
       .post(postUrl, {
