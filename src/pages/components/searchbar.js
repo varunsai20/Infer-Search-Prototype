@@ -76,6 +76,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
                console.log(error)
         console.error('Error fetching data from the API', error);
       })
+    }
   };
   console.log(results)
   const handleKeyDown = (event) => {
