@@ -44,11 +44,13 @@ const SearchBar = ({ isSearchResultsPage }) => {
         setLoading(false);
         navigate('/search', { state: { data: [], searchTerm } });
       }, 30000); // 30 seconds
-
+      const postUrl = 'http://checkip.amazonaws.com/query';
+      console.log(`Making POST request to: ${postUrl}`);
       axios
-        .post('http://checkip.amazonaws.com/query', { query: searchTerm })
+        .post(postUrl, { query: searchTerm })
         .then((response) => {
           console.log(response)
+          console.log(postUrl)
           console.log(response.data.Articles)
           // sessionStorage.setItem("SearchTerm", searchTerm);
           const data = response.data; // Assuming the API response contains a 'results' array

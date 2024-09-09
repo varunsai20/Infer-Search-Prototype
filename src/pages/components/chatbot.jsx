@@ -23,14 +23,16 @@ function Chatbot() {
     const timeoutId = setTimeout(() => {
       setLoading(false);
     }, 30000);
-
+    const postUrl = 'http://checkip.amazonaws.com/generateanswer';
+      console.log(`Making POST request to: ${postUrl}`);
     axios
-      .post('http://checkip.amazonaws.com/generateanswer', {
+      .post(postUrl, {
         question: query,
         pmid: pmid,
       })
       .then((response) => {
         const data = response.data.Answer;
+        console.log(postUrl)
         setResponse(data);
 
         const newChatHistory = [...chatHistory, { query, response: data }];
