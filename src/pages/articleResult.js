@@ -13,7 +13,7 @@ function ArticleResult() {
 
   useEffect(() => {
     // Find the article that matches the PMID
-    const article = data.Articles.find((item) => item.PMID === pmid);
+    const article = data.articles.find((item) => item.PMID === pmid);
 
     if (article) {
       setArticleData(article); // Set the matched article data
