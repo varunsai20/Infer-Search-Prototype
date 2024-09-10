@@ -23,16 +23,13 @@ function Chatbot() {
     const timeoutId = setTimeout(() => {
       setLoading(false);
     }, 30000);
-    const postUrl = 'http://169.254.169.254/latest/meta-data/public-ipv4/generateanswer';
-      console.log(`Making POST request to: ${postUrl}`);
     axios
-      .post(postUrl, {
+      .post('${process.env.ElasticIP}/generateanswer', {
         question: query,
         pmid: pmid,
       })
       .then((response) => {
         const data = response.data.Answer;
-        console.log(postUrl)
         setResponse(data);
 
         const newChatHistory = [...chatHistory, { query, response: data }];

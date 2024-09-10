@@ -43,23 +43,17 @@ const SearchBar = ({ isSearchResultsPage }) => {
       const timeoutId = setTimeout(() => {
         setLoading(false);
         navigate('/search', { state: { data: [], searchTerm } });
-      }, 30000); // 30 seconds
-      const postUrl = 'http://169.254.169.254/latest/meta-data/';
-      const postUrl2 = 'http://instance-data/latest/meta-data/public-ipv4'
-      console.log(`Making POST request to: ${postUrl}`);
-      
+      }, 30000); // 30 seconds      
       axios
-        .get({postUrl})
+        .post('${process.env.ElasticIP}/query',{query:searchTerm})
         .then((response) => {
           console.log(response)
-          console.log(response.text)
-          console.log(postUrl)
           console.log(response.data.Articles)
-          // sessionStorage.setItem("SearchTerm", searchTerm);
-          // const data = response.data; // Assuming the API response contains a 'results' array
-          // setResults(data);
+          sessionStorage.setItem("SearchTerm", searchTerm);
+          const data = response.data; // Assuming the API response contains a 'results' array
+          setResults(data);
           // Navigate to SearchPage and pass data via state
-          // navigate('/search', { state: { data, searchTerm } });
+          navigate('/search', { state: { data, searchTerm } });
           clearTimeout(timeoutId);
           setLoading(false);
         })
@@ -70,12 +64,6 @@ const SearchBar = ({ isSearchResultsPage }) => {
           navigate('/search', { state: { data: [], searchTerm } });
           console.error('Error fetching data from the API', error);
         });
-      axios.get(postUrl2).then((response) => {
-        console.log(response)
-    }).catch((error) => {
-               console.log(error)
-        console.error('Error fetching data from the API', error);
-      })
     }
   };
   console.log(results)
