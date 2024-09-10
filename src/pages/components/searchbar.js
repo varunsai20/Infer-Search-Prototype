@@ -48,7 +48,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
         .post('http://13.232.28.221:80/query',{query:searchTerm})
         .then((response) => {
           console.log(response)
-          console.log(response.data.Articles)
+          console.log(response.data.articles)
           sessionStorage.setItem("SearchTerm", searchTerm);
           const data = response.data; // Assuming the API response contains a 'results' array
           setResults(data);

@@ -29,7 +29,7 @@ function Chatbot() {
         pmid: pmid,
       })
       .then((response) => {
-        const data = response.data.Answer;
+        const data = response.data.answer;
         setResponse(data);
 
         const newChatHistory = [...chatHistory, { query, response: data }];
