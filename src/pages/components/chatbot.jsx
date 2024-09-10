@@ -24,7 +24,7 @@ function Chatbot() {
       setLoading(false);
     }, 30000);
     axios
-      .post(process.env.ElasticIP/'generateanswer', {
+      .post('13.232.28.221:80/generateanswer', {
         question: query,
         pmid: pmid,
       })
