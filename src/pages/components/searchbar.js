@@ -45,7 +45,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
         navigate('/search', { state: { data: [], searchTerm } });
       }, 30000); // 30 seconds      
       axios
-        .post('${process.env.ElasticIP}/query',{query:searchTerm})
+        .post(process.env.ElasticIP/'query',{query:searchTerm})
         .then((response) => {
           console.log(response)
           console.log(response.data.Articles)
