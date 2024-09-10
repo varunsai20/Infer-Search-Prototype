@@ -42,8 +42,8 @@ function SearchResults() {
     <>
       <Container id="searchContainer" maxWidth="md">
       <Box id="searchResults">
-        {data.Articles && data.Articles.length > 0 ? (
-          data.Articles.map((result, index) => (
+        {data.articles && data.articles.length > 0 ? (
+          data.articles.map((result, index) => (
             <Paper
               key={index}
               elevation={2}
