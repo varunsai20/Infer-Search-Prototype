@@ -23,29 +23,63 @@ function Chatbot() {
     const timeoutId = setTimeout(() => {
       setLoading(false);
     }, 30000);
-    axios
-      .post('http://13.232.28.221:80/generateanswer', {
-        question: query,
-        pmid: pmid,
-      })
+    const newChatEntry = { query, response: '' };
+    setChatHistory((chatHistory) => [...chatHistory, newChatEntry]);
+    const bodyData = JSON.stringify({
+      question: query,
+      pmid: pmid,
+    });
+    fetch('http://13.127.207.184:80/generateanswer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: bodyData,
+    })
       .then((response) => {
-        const data = response.data.answer;
-        setResponse(data);
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
 
-        const newChatHistory = [...chatHistory, { query, response: data }];
-        setChatHistory(newChatHistory);
+        const readStream = () => {
+          reader.read().then(({ done, value }) => {
+            if (done) {
+              setLoading(false);
+              console.log(chatHistory)
+              sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
 
-        sessionStorage.setItem('chatHistory', JSON.stringify(newChatHistory));
+              return;
+            }
 
-        setQuery('');
-        setLoading(false);
-        clearTimeout(timeoutId);
+            // Decode chunk and append it to the cumulative response
+            const chunk = decoder.decode(value, { stream: true });
+            const jsonChunk = JSON.parse(chunk);
+            const answer = jsonChunk.answer;
+            setResponse(answer)
+            setChatHistory((chatHistory) => {
+              const updatedChatHistory = [...chatHistory];
+              const lastEntryIndex = updatedChatHistory.length - 1;
+              
+              if (lastEntryIndex >= 0) {
+                updatedChatHistory[lastEntryIndex] = {
+                  ...updatedChatHistory[lastEntryIndex],
+                  response: updatedChatHistory[lastEntryIndex].response + answer
+                };
+              }
+            
+              return updatedChatHistory;
+            });
+
+            if (endOfMessagesRef.current) {
+              endOfMessagesRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Continue reading the stream
+            readStream();
+          });
+        };
+
+        readStream();
       })
-      .catch((error) => {
-        clearTimeout(timeoutId);
-        setLoading(false);
-        console.error('Error fetching data from the API', error);
-      });
   };
 
   useEffect(() => {
