@@ -45,7 +45,7 @@ const SearchBar = ({ isSearchResultsPage }) => {
         navigate('/search', { state: { data: [], searchTerm } });
       }, 30000); // 30 seconds      
       axios
-        .post('http://13.127.207.184:80/query',{query:searchTerm})
+        .post('http://127.0.0.1:80/query',{query:searchTerm})
         .then((response) => {
           console.log(response)
           console.log(response.data.articles)
