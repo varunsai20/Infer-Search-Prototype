@@ -76,7 +76,7 @@ function Chatbot() {
 
             // Continue reading the stream
             readStream();
-          });
+          },50000);
         };
 
         readStream();
