@@ -29,7 +29,7 @@ function Chatbot() {
       question: query,
       pmid: pmid,
     });
-    fetch('http://13.127.207.184:80/generateanswer', {
+    fetch('http://127.0.0.1:80/generateanswer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,6 +52,7 @@ function Chatbot() {
 
             // Decode chunk and append it to the cumulative response
             const chunk = decoder.decode(value, { stream: true });
+            console.log(chunk)
             const jsonChunk = JSON.parse(chunk);
             const answer = jsonChunk.answer;
             setResponse(answer)
@@ -68,14 +69,14 @@ function Chatbot() {
             
               return updatedChatHistory;
             });
-
+            
             if (endOfMessagesRef.current) {
               endOfMessagesRef.current.scrollIntoView({ behavior: 'smooth' });
             }
 
             // Continue reading the stream
             readStream();
-          });
+          },50000);
         };
 
         readStream();
